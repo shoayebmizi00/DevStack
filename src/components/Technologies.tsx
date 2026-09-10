@@ -1,19 +1,39 @@
+import type { ITechnology } from "../type";
+import TechnologyCard from "./TechnologyCard";
 
-const Technologies = () => {
-    return (
-        <div>
-            <section>
-                <h2>Explore The <span>Technologies</span></h2>
-                <p>Pick one technology per category to build your ideal stack.</p>
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-12 lg:grid-cols-12 h-[300px]">
-                    <div className="col-span-9">
-                        
-                    </div>
-                    <div className="col-span-3"></div>
-                </div>
-            </section>
+const Technologies = ({ technologies }: { technologies: ITechnology[] }) => {
+
+    const
+  return (
+    <section className="container mx-auto px-4 py-12">
+      {/* Heading */}
+      <div className="mb-8">
+        <h2 className="text-3xl font-bold text-slate-900">
+          Explore The <span className="text-[#DB2777]">Technologies</span>
+        </h2>
+
+        <p className="mt-2 text-slate-500">
+          Pick one technology per category to build your ideal stack.
+        </p>
+      </div>
+
+      {/* Content */}
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
+        {/* Technology Cards */}
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:col-span-9 lg:grid-cols-3">
+          {technologies.map((tech) => (
+            <TechnologyCard key={tech.id} technology={tech} />
+          ))}
         </div>
-    );
+
+        {/* Right Side */}
+        <div className="lg:col-span-3">
+          {/* Stack section will come here later */}
+
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Technologies;

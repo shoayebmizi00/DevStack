@@ -10,13 +10,15 @@
   );
 }
 
-@utility brand-gradient {
-  background-image: var(--brand-gradient);
-}
+@layer utilities {
+  .brand-gradient {
+    background-image: var(--brand-gradient);
+  }
 
-@utility brand-text {
-  background-image: var(--brand-gradient);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  .brand-text {
+    background-image: var(--brand-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
 }

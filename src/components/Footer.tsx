@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="border-t-2 border-gray-100 bg-white">
       <div className="container mx-auto px-2 py-12 sm:px-4">
-        <div className="grid grid-cols-2 gap-10 lg:grid-cols-4 lg:gap-12">
+        <div className="grid grid-cols-2 gap-10 lg:flex lg:justify-between">
           {/* Brand */}
           <div className="flex flex-col gap-5 sm:col-span-2 lg:col-span-1">
             <img src={FooterLogo} alt="DevStack Logo" className="w-30" />

@@ -1,3 +1,4 @@
+import CopyRight from "./components/CopyRight";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero"
 import Navbar from "./components/Navbar"
@@ -23,6 +24,7 @@ function App() {
       <Hero />
       <Technologies technologies={technologiesData} />
       <Footer/>
+      <CopyRight/>
     </div>
   )
 }

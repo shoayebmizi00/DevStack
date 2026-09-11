@@ -9,7 +9,7 @@ const Technologies = ({ technologies }: { technologies: ITechnology[] }) => {
   >([]);
 
   return (
-    <section className="container mx-auto px-4 py-12">
+    <section className="container mx-auto px-4 py-16">
       <div className="mb-8">
         <h2 className="text-3xl font-bold text-slate-900">
           Explore The <span className="text-[#DB2777]">Technologies</span>

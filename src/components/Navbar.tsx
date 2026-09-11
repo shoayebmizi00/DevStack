@@ -7,51 +7,69 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 border-b-3 border-b-gray-50 bg-white">
       <nav className="container mx-auto p-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
+        {/* Desktop */}
+        <div className="hidden items-center justify-between md:flex">
           <div>
-            <img src={Logo} alt="Logo" className="w-32 md:w-40" />
+            <img src={Logo} alt="Logo" className="w-40" />
           </div>
 
-          <div className="hidden md:block">
-            <ul className="flex items-center gap-6">
-              <li>
-                <a className="text-[#DB2777]" href="#">
-                  Home
-                </a>
-              </li>
+          <ul className="flex items-center gap-6">
+            <li>
+              <a className="text-[#DB2777]" href="#">
+                Home
+              </a>
+            </li>
 
-              <li>
-                <a href="#">Technologies</a>
-              </li>
+            <li>
+              <a href="#">Technologies</a>
+            </li>
 
-              <li>
-                <a href="#">Projects</a>
-              </li>
+            <li>
+              <a href="#">Projects</a>
+            </li>
 
-              <li>
-                <a href="#">About</a>
-              </li>
+            <li>
+              <a href="#">About</a>
+            </li>
 
-              <li>
-                <a href="#">Contact</a>
-              </li>
-            </ul>
-          </div>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+          </ul>
 
-          <div className="hidden items-center gap-4 md:flex">
+          <div className="flex items-center gap-4">
             <button className="btn">Sign In</button>
-
             <button className="btn btn-secondary">Sign Up</button>
           </div>
+        </div>
 
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-2xl md:hidden"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? "✕" : "☰"}
-          </button>
+        {/* Mobile*/}
+        <div className="grid grid-cols-3 items-center md:hidden">
+          {/* LEFT - Hamburger */}
+          <div className="flex justify-start">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-2xl"
+              aria-label="Toggle menu"
+              aria-expanded={isOpen}
+            >
+              {isOpen ? "✕" : "☰"}
+            </button>
+          </div>
+
+          <div className="flex justify-center">
+            <img src={Logo} alt="Logo" className="w-28 sm:w-32" />
+          </div>
+
+          <div className="flex items-center justify-end gap-1 sm:gap-2">
+            <button className="btn px-2 py-1 text-xs sm:px-3 sm:py-2 sm:text-sm">
+              Sign In
+            </button>
+
+            <button className="btn btn-secondary px-2 py-1 text-xs sm:px-3 sm:py-2 sm:text-sm">
+              Sign Up
+            </button>
+          </div>
         </div>
 
         {/* Mobile Responsive */}
@@ -69,52 +87,29 @@ const Navbar = () => {
               </li>
 
               <li>
-                <a
-                  className="block"
-                  href="#"
-                  onClick={() => setIsOpen(false)}
-                >
+                <a className="block" href="#" onClick={() => setIsOpen(false)}>
                   Technologies
                 </a>
               </li>
 
               <li>
-                <a
-                  className="block"
-                  href="#"
-                  onClick={() => setIsOpen(false)}
-                >
+                <a className="block" href="#" onClick={() => setIsOpen(false)}>
                   Projects
                 </a>
               </li>
 
               <li>
-                <a
-                  className="block"
-                  href="#"
-                  onClick={() => setIsOpen(false)}
-                >
+                <a className="block" href="#" onClick={() => setIsOpen(false)}>
                   About
                 </a>
               </li>
 
               <li>
-                <a
-                  className="block"
-                  href="#"
-                  onClick={() => setIsOpen(false)}
-                >
+                <a className="block" href="#" onClick={() => setIsOpen(false)}>
                   Contact
                 </a>
               </li>
             </ul>
-
-            {/* Sign In/Sign Up Buttons */}
-            <div className="mt-5 flex flex-col gap-3">
-              <button className="btn w-full">Sign In</button>
-
-              <button className="btn btn-secondary w-full">Sign Up</button>
-            </div>
           </div>
         )}
       </nav>

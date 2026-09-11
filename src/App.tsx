@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import Hero from "./components/Hero"
 import Navbar from "./components/Navbar"
 import Technologies from "./components/Technologies"
@@ -21,6 +22,7 @@ function App() {
       <Navbar />
       <Hero />
       <Technologies technologies={technologiesData} />
+      <Footer/>
     </div>
   )
 }

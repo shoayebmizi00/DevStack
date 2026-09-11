@@ -1,16 +1,43 @@
-import { useState } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import type { ITechnology } from "../type";
+import { toast } from "react-toastify";
 
 interface TechnologyCardProps {
   technology: ITechnology;
+  selectedTechnologies: ITechnology[];
+  setSelectedTechnologies: Dispatch<SetStateAction<ITechnology[]>>;
 }
 
-const handleAddToStack = () => {
+const TechnologyCard = ({
+  technology,
+  selectedTechnologies,
+  setSelectedTechnologies,
+}: TechnologyCardProps) => {
+  const handleAddToStack = () => {
+    const alreadySelected = selectedTechnologies.some(
+      (tech) => tech.id === technology.id,
+      toast.success(`${technology.name} added to your stack!`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }),
+    );
 
-};
+    if (alreadySelected) {
+      return;
+    }
 
-const TechnologyCard = ({ technology }: TechnologyCardProps) => {
-    const [isAdded, setIsAdded] = useState(false);
+    setSelectedTechnologies((previous) => [...previous, technology]);
+  };
+
+  const isSelected = selectedTechnologies.some(
+    (tech) => tech.id === technology.id,
+  );
+
   return (
     <div className="group rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
       <div className="flex items-start justify-between">
@@ -52,9 +79,14 @@ const TechnologyCard = ({ technology }: TechnologyCardProps) => {
 
       <button
         onClick={handleAddToStack}
-        className="mt-3 w-full rounded-md bg-slate-900 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
+        disabled={isSelected}
+        className={`mt-3 w-full rounded-md py-2 text-sm font-medium transition ${
+          isSelected
+            ? "cursor-not-allowed bg-slate-200 text-slate-500"
+            : "bg-slate-900 text-white hover:bg-slate-800"
+        }`}
       >
-        Add to Stack
+        {isSelected ? "Added to Stack" : "Add to Stack"}
       </button>
     </div>
   );

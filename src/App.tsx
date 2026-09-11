@@ -1,32 +1,35 @@
 import CopyRight from "./components/CopyRight";
 import Footer from "./components/Footer";
-import Hero from "./components/Hero"
-import Navbar from "./components/Navbar"
-import Technologies from "./components/Technologies"
-import { useEffect, useState } from "react"
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
+import Technologies from "./components/Technologies";
+import { Suspense, useEffect, useState } from "react";
+import type { ITechnology } from "./type";
 
 const fetchData = async () => {
-  const response = await fetch('/TechnologyData.json');
+  const response = await fetch("/TechnologyData.json");
   const data = await response.json();
   return data;
 };
 
 function App() {
-  const [technologiesData, setTechnologiesData] = useState<any[]>([])
+  const [technologiesData, setTechnologiesData] = useState<ITechnology[]>([]);
 
   useEffect(() => {
-    fetchData().then(setTechnologiesData)
-  }, [])
+    fetchData().then(setTechnologiesData);
+  }, []);
 
   return (
     <div>
       <Navbar />
       <Hero />
-      <Technologies technologies={technologiesData} />
-      <Footer/>
-      <CopyRight/>
+      <Suspense fallback={<div className="text-center text-lg">Loading...</div>}>
+        <Technologies technologies={technologiesData} />
+      </Suspense>
+      <Footer />
+      <CopyRight />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

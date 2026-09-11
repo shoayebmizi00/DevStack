@@ -1,7 +1,7 @@
 const CopyRight = () => {
   return (
     <div className="border-t border-gray-100">
-        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 py-8">
+        <div className="container mx-auto flex flex-col md:flex-row  md:px-4 justify-between items-center gap-4 py-8">
       <div className="flex flex-col md:flex-row items-center gap-2">
         <p className="text-gray-500 text-sm">
           &copy; {new Date().getFullYear()} DevStack. All rights reserved.

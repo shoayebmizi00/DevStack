@@ -12,7 +12,7 @@ const Technologies = ({ technologies }: { technologies: ITechnology[] }) => {
     <section className="container mx-auto px-4 py-16">
       <div className="mb-8">
         <h2 className="text-3xl font-bold text-slate-900">
-          Explore The <span className="text-[#DB2777]">Technologies</span>
+          Explore The <span className="brand-text">Technologies</span>
         </h2>
 
         <p className="mt-2 text-slate-500">

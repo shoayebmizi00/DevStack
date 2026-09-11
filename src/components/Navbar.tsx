@@ -39,7 +39,7 @@ const Navbar = () => {
 
           <div className="flex items-center gap-4">
             <button className="btn">Sign In</button>
-            <button className="btn btn-secondary">Sign Up</button>
+            <button className="btn brand-gradient text-white">Sign Up</button>
           </div>
         </div>
 

@@ -44,8 +44,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile*/}
-        <div className="grid grid-cols-3 items-center md:hidden">
-          {/* LEFT - Hamburger */}
+        <div className="flex justify-between items-center md:hidden">
           <div className="flex justify-start">
             <button
               onClick={() => setIsOpen(!isOpen)}

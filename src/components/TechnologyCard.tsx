@@ -16,7 +16,7 @@ const TechnologyCard = ({
   const handleAddToStack = () => {
     const alreadySelected = selectedTechnologies.some(
       (tech) => tech.id === technology.id,
-      toast.success(`${technology.name} added to your stack!`, {
+      toast.success(`${technology.name} added to stack!`, {
         position: "top-center",
         autoClose: 3000,
         hideProgressBar: false,
@@ -28,6 +28,15 @@ const TechnologyCard = ({
     );
 
     if (alreadySelected) {
+      toast.info(`${technology.name} is already in stack!`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       return;
     }
 
@@ -86,7 +95,7 @@ const TechnologyCard = ({
             : "bg-slate-900 text-white hover:bg-slate-800"
         }`}
       >
-        {isSelected ? "Added to Stack" : "Add to Stack"}
+        {isSelected ? "✓ Added to Stack" : "Add to Stack"}
       </button>
     </div>
   );

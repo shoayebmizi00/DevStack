@@ -1,5 +1,6 @@
 import type { Dispatch, SetStateAction } from "react";
 import type { ITechnology } from "../type";
+import { toast } from "react-toastify";
 
 interface StackProps {
   selectedTechnologies: ITechnology[];
@@ -14,10 +15,20 @@ const Stack = ({
     setSelectedTechnologies((technologies) =>
       technologies.filter((technology) => technology.id !== id),
     );
+
+    toast.info("Technology removed from stack!", {
+      position: "top-center",
+      autoClose: 3000,
+    });
   };
 
   const handleRemoveAll = () => {
     setSelectedTechnologies([]);
+
+    toast.warning("All technologies removed from stack!", {
+      position: "top-center",
+      autoClose: 3000,
+    });
   };
 
   return (
@@ -62,6 +73,7 @@ const Stack = ({
                 </div>
 
                 <button
+                  type="button"
                   onClick={() => handleRemove(technology.id)}
                   className="ml-2 text-2xl leading-none text-slate-300 transition hover:text-red-500"
                   aria-label={`Remove ${technology.name}`}
@@ -73,6 +85,7 @@ const Stack = ({
           </div>
 
           <button
+            type="button"
             onClick={handleRemoveAll}
             className="mt-6 w-full rounded-lg border border-red-200 py-2.5 text-sm font-semibold text-red-500 transition hover:bg-red-50"
           >
